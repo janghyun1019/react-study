@@ -1,0 +1,14 @@
+.Quiz001 {
+  margin-top: 50px;
+}
+
+button {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.number {
+  font-size: 24px;
+  color: red;
+  margin-left: 10px;
+}
