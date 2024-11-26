@@ -8,6 +8,8 @@ import Quiz001 from './practice/Quiz001';
 import Practice001 from './practice/Practice001';
 import Props02 from './components/Props02';
 import Quiz002 from './practice/Quiz002'
+import NewsBlog from './newsblog/NewsBlogMe';
+import NewsBlogTeacher from './newsblog/NewsBlog';
 
 
 
@@ -20,8 +22,10 @@ function App() {
     //return <Props01 />;
     //return <Quiz001 />
     //return <Practice001 />;
-    return <Props02 />;
+    //return <Props02 />;
     //return <Quiz002 />;
+    return <NewsBlog />;
+    //return <NewsBlogTeacher />
 }
 
 export default App;
