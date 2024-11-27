@@ -1,0 +1,25 @@
+.box-container {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap; /* 줄바꿈 허용 */
+    max-width: 100%; /* 너비 늘어나면서 줄어들지 않게 */
+    overflow-x: auto; /* 가로 스크롤 허용 */
+  }
+ 
+  .add-button {
+    font-size: 15px;
+    cursor: pointer;
+  }  
+
+.box {
+    border: 1px solid black;
+    display: flex;
+    /* font-size: 16px;
+    flex-shrink: 0; 박스 크기를 고정 */
+  }
+  
+
+  .box-container .box {
+    width: 200px;
+    height: 200px;
+  }
