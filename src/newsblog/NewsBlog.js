@@ -50,18 +50,19 @@ function NewsBlog() {
                                 setLikeCount(temp);
                             }}>❤</span> {likeCount[index]} </h4>
                             <p>내용 무</p>
-                            <button onClick={() => {
-                                let tempNews = [...news];
-                                let tempLikeCount = [...likeCount];
+                            <button onClick={()=>{
+                                //누른 내용 데이터가 삭제
 
-                                tempNews.splice(index, 1); // 뉴스 삭제
-                                tempLikeCount.splice(index, 1); // 좋아요 삭제
+                                //index 활용
+                                //splice 활용
+                                let temp = [...news];
+                                temp.splice(index, 1);
+                                setNews(temp);
 
-                                setNews(tempNews);
-                                setLikeCount(tempLikeCount);
-                            }}>
-                                삭제
-                            </button>
+                                likeCount.splice(index, 1);
+
+                                
+                            }}>삭제</button>
                         </div>
                     )
 
@@ -82,24 +83,24 @@ function NewsBlog() {
                 }}/>
                 <button onClick={()=>{
                     //발행 버튼을 눌렀을때
-                    //전제조건 : 양측에 있는 띄어쓰기는 제외(trim)
+                    //전제조건 : 양측에 있는 띄어쓰기는 제외 (trim)
                     inputText = inputText.trim();
-
-                    // if( inputText.trim() == ''){
-                    // if( inputText == ') {
-                    // if( inputText.length == 0 ){
-                    if( inputText.length == 0
-                        || inputText == ''
-                        || inputText == null
-                        || inputText == undefined ){
-                        alert('값을 입력하세요!');
+                    
+                    //if( inputText.trim() == '' ){
+                    //if( inputText == '' ){
+                    //if( inputText.length == 0 ){
+                    if( inputText.length == 0 
+                        || inputText == '' 
+                        || inputText == null 
+                        || inputText == undefined ) {
+                        alert('값을 입력하세요');
                         return;
                     }
 
                     console.log('a'+inputText);
 
                     let temp = [...news];
-                    temp.push(inputText); 
+                    temp.push(inputText);
                     setNews(temp);
 
                     likeCount.push(0);

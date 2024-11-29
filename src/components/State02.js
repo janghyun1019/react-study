@@ -2,13 +2,13 @@
 function State02(){
 
     let text = "";
-    let textArr = [];
-    for (let i=0; i>5; i++){
-        //text += "<p>안녕하세요~</p>"; //단순 <p> 텍스트가 나옴
+    let textArr = [];  //[] 배열
+    for(let i=0; i<5; i++){
+        //text += "<p>안녕하세요~</p>";   //단순 <p>텍스트가 나옴
         textArr.push(<p>안녕하세요~</p>);
     }
 
-    let numArr = [1,2,3,4,5]; // 단순 갯수로 활용할 배열
+    let numArr = [1,1,1,1,1,1,1,1];  //단순 갯수로 활용할 배열
 
     let msgArr = ['안녕', 'hi', 'hello', '헤이'];
 

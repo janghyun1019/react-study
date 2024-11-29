@@ -1,69 +1,123 @@
-import React, { useState } from "react";
+import ColorBox from './ColorBox';
 import './Practice002.css';
+import { useState } from 'react';
 
-function App() {
-  // 초기 박스 상태 설정
-  const [boxes, setBoxes] = useState([
-    { color: "red" },
-    { color: "blue" },
-    { color: "green" },
-    { color: "black" },
-  ]);
+function Practice002() {
 
-  // 박스 추가 함수
-  const addBox = (color, position) => {
-    if (position === "front") {
-      setBoxes([{ color }, ...boxes]);
-    } else if (position === "back") {
-      setBoxes([...boxes, { color }]);
-    }
-  };
 
-  // 박스 삭제 함수
-  const removeBox = (position) => {
-    if (boxes.length === 0) return; // 박스가 없으면 아무 작업도 하지 않음
-    if (position === "front") {
-      setBoxes(boxes.slice(1)); // 앞의 박스 제거
-    } else if (position === "back") {
-      setBoxes(boxes.slice(0, -1)); // 뒤의 박스 제거
-    }
-  };
+    let [boxes, setBoxes] = useState(['red', 'blue', 'green', 'black']);
 
-  return (
-    <div>
-      <div>
-        <button className="add-button" onClick={() => addBox("red", "front")}>앞빨간박스추가</button>
-        <button className="add-button" onClick={() => addBox("blue", "front")}>앞파란박스추가</button>
-        <button className="add-button" onClick={() => addBox("green", "front")}>앞초록박스추가</button>
+    return (
+        <div>
+            <div>
+                <button onClick={() => {
+                    let temp = ['red', ...boxes];
+                    setBoxes(temp);
+                }}>앞빨간박스추가</button>
+                <button onClick={() => { 
+                    let temp = ['blue', ...boxes];
+                    setBoxes(temp);
+                }}>앞파란박스추가</button>
+                <button onClick={() => {
+                    let temp = ['green', ...boxes];
+                    setBoxes(temp);
+                }}>앞초록박스추가</button>
 
-        <button className="add-button" onClick={() => addBox("red", "back")}>뒤빨간박스추가</button>
-        <button className="add-button" onClick={() => addBox("blue", "back")}>뒤파란박스추가</button>
-        <button className="add-button" onClick={() => addBox("green", "back")}>뒤초록박스추가</button>
+                <button onClick={() => { 
+                    let temp = [...boxes, 'red'];
+                    setBoxes(temp);
+                }}>뒤빨간박스추가</button>
+                <button onClick={() => { 
+                    let temp = [...boxes, 'blue'];
+                    setBoxes(temp);
+                }}>뒤파란박스추가</button>
+                <button onClick={() => { 
+                    let temp = [...boxes, 'green'];
+                    setBoxes(temp);
+                }}>뒤초록박스추가</button>
+                <button onClick={() => {
+                    let temp = [...boxes];
+                    temp.shift();
+                    setBoxes(temp);
+                }}>앞 박스 삭제</button>
+                <button onClick={() => {
+                    let temp = [...boxes];
+                    temp.pop();
+                    setBoxes(temp);
+                }}>뒤 박스 삭제</button>
+            </div>
 
-        <button className="add-button" onClick={() => removeBox("front")}>앞박스삭제</button>
-        <button className="add-button" onClick={() => removeBox("back")}>뒷박스삭제</button>
-      </div>
+            {
+                //['red', 'blue', 'green', 'black']
+                boxes.map((value)=>{
+                    return <ColorBox bgColor={value}/>
+                })
+            }
 
-      <div style={{ display: "flex" }} className="box-container">
-        {boxes.map((box, index) => (
-          <ColorBox key={index} bgColor={box.color} className="box" />
-        ))}
-      </div>
-      
-    </div>
-  );
+        </div>
+    );
+
+    /*
+    let [boxes, setBoxes] = useState(
+        [<div className="box bg-red"></div>,
+        <div className="box bg-blue"></div>,
+        <div className="box bg-green"></div>,
+        <div className="box bg-black"></div>]
+    );
+
+    return (
+        <div>
+            <div>
+                <button onClick={() => {
+                    let temp = [...boxes];
+                    temp.unshift(<div className="box bg-red"></div>);
+                    setBoxes(temp);
+                }}>앞빨간박스추가</button>
+                <button onClick={() => {
+                    let temp = [...boxes];
+                    temp.unshift(<div className="box bg-blue"></div>);
+                    setBoxes(temp);
+                }}>앞파란박스추가</button>
+                <button onClick={() => {
+                    let temp = [...boxes];
+                    temp.unshift(<div className="box bg-green"></div>);
+                    setBoxes(temp);
+                }}>앞초록박스추가</button>
+
+                <button onClick={() => {
+                    let temp = [...boxes];
+                    temp.push(<div className="box bg-red"></div>);
+                    setBoxes(temp);
+                }}>뒤빨간박스추가</button>
+                <button onClick={() => {
+                    let temp = [...boxes];
+                    temp.push(<div className="box bg-blue"></div>);
+                    setBoxes(temp);
+                }}>뒤파란박스추가</button>
+                <button onClick={() => {
+                    let temp = [...boxes];
+                    temp.push(<div className="box bg-green"></div>);
+                    setBoxes(temp);
+                }}>뒤초록박스추가</button>
+                <button onClick={() => { 
+                    let temp = [...boxes];
+                    temp.shift();
+                    setBoxes(temp);
+                }}>앞 박스 삭제</button>
+                <button onClick={() => { 
+                    let temp = [...boxes];
+                    temp.pop();
+                    setBoxes(temp);
+                }}>뒤 박스 삭제</button>
+            </div>
+
+            {
+                boxes
+            }
+
+        </div>
+    );
+    */
 }
 
-function ColorBox({ bgColor }) {
-  return (
-    <div
-      style={{
-        width: "50px",
-        height: "50px",
-        backgroundColor: bgColor,
-      }}
-    ></div>
-  );
-}
-
-export default App;
+export default Practice002;

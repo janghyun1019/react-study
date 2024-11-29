@@ -9,9 +9,9 @@ function Export01(){
             <h1>Export01</h1>
             <h2>{menu1}</h2>
             <h2>{menu2}</h2>
-            <h2>{menu4}</h2>
-            <h2>{menu5}</h2>
-            <h2>{menu6}</h2>
+            <h3>{menu4}</h3>
+            <h3>{menu5}</h3>
+            <h3>{menu6}</h3>
         </div>
     )
 }

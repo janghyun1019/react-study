@@ -1,57 +1,112 @@
-import React, { useState } from "react";
-import logo from './../../src/logo.svg';
-import './practice001.css';
+import logo from '../logo.svg';
+import './Practice001.css';
+import { useState } from 'react';
 
+function Practice001() {
 
-function Practice001(){
-
-    //선생님풀이1
-    let[txt,setTxt] = useState('하나');
+    let txtArr = ['하나', '둘', '셋'];
+    let [index, setIndex] = useState(0);
 
     return (
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>{txt}</p>
-            <button className="button" onClick={()=>{
+            <header className="App-header">
+                <img src={logo} className="App-logo" alt="logo" />
+                <p>
+                    {txtArr[index]}
+                </p>
+                <button onClick={()=>{
+                    
+                    setIndex( (index+1) % txtArr.length );
 
-                if(txt == '하나')
-                    setTxt('둘');
-                else if(txt == '둘')
-                    setTxt('셋');
-                else
-                    setTxt('하나');
-                
-            }}>
-                변경버튼
-            </button>
-          </header>
+                    /*
+                    let value = (index +1) == 3 ? 0 : (index + 1);
+                    setIndex(value);
+                    */
+
+                    /*
+                    index++;
+                    if(index > 2){
+                        index = 0;
+                    }
+                    setIndex(index);
+                    */
+                }}>변경버튼</button>
+            </header>
         </div>
-      );
-
+    );
 
     /*
-    const [index, setIndex] = useState(0); // 현재 텍스트의 인덱스 상태
+    let [flag, setFlag] = useState(1);
 
-    const texts = ["하나", "둘", "셋"]; // 순환 텍스트 배열
+    if(flag == 1){
+        return (
+            <div className="App">
+                <header className="App-header">
+                    <img src={logo} className="App-logo" alt="logo" />
+                    <p>
+                        하나
+                    </p>
+                    <button onClick={()=>{
+                        setFlag(2);
+                    }}>변경버튼</button>
+                </header>
+            </div>
+        );
+    } else if(flag == 2){
+        return (
+            <div className="App">
+                <header className="App-header">
+                    <img src={logo} className="App-logo" alt="logo" />
+                    <p>
+                        둘
+                    </p>
+                    <button onClick={()=>{
+                        setFlag(3);
+                    }}>변경버튼</button>
+                </header>
+            </div>
+        );
+    } else {  //flag == 3
+        return (
+            <div className="App">
+                <header className="App-header">
+                    <img src={logo} className="App-logo" alt="logo" />
+                    <p>
+                        셋
+                    </p>
+                    <button onClick={()=>{
+                        setFlag(1);
+                    }}>변경버튼</button>
+                </header>
+            </div>
+        );
+    }
+    */
 
-    const handleClick = () => {
-        setIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    };
+    /*
+    let [txt, setTxt] = useState('하나');
 
     return (
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p className="text">{texts[index]}</p>
-            <button className="button" onClick={handleClick}>
-                변경버튼
-            </button>
-          </header>
-        </div>
-      );
-      */
+            <header className="App-header">
+                <img src={logo} className="App-logo" alt="logo" />
+                <p>
+                    {txt}
+                </p>
+                <button onClick={()=>{
+                    
+                    if(txt == '하나')
+                        setTxt('둘');
+                    else if(txt == '둘')
+                        setTxt('셋');
+                    else
+                        setTxt('하나');
 
+                }}>변경버튼</button>
+            </header>
+        </div>
+    );
+    */
 }
 
 export default Practice001;
