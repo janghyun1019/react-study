@@ -6,7 +6,7 @@ function TempApp(){
         <div>
             <h1>TempApp Component</h1>
         </div>
-    )
+    );
 }
 
 export default TempApp;
